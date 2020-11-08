@@ -7,21 +7,23 @@ import javax.inject.Inject;
 public class Car {
     private static final String TAG = "Car";
 
-    private Engine engine;
-    private Wheels wheels;
+    @Inject Engine engine;
+    @Inject Wheels wheels;
 
     @Inject
-    public Car(Engine engine, Wheels wheels) {
-        this.engine = engine;
-        this.wheels = wheels;
+    public Car() {
+        Log.d(TAG, "Car Ready");
     }
 
-    public void drive(){
-        Log.d(TAG, "driving...");
-    }
-    //method injection otomatis dipanggil ketika consctructor dipanggil
+    //method injection otomatis dipanggil ketika consctructor->member dipanggil
     @Inject
     public void enableRemote(Remote remote){
         remote.setListener(this);
     }
+    @Inject
+    public void drive(){
+        Log.d(TAG, "driving...");
+    }
 }
+
+//Dipanggil  Consuctor-> member-> method injection

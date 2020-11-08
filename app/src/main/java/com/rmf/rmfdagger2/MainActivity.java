@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 //        car = carComponent.getCar();
         //Inject Field
         carComponent.inject(this);
-        car.drive();
+//        car.drive();
     }
 
 
