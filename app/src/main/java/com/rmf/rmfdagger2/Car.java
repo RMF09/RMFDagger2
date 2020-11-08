@@ -7,11 +7,14 @@ import javax.inject.Inject;
 public class Car {
     private static final String TAG = "Car";
 
-    @Inject Engine engine;
-    @Inject Wheels wheels;
+    //we dont own this class ->make module and provides
+    private Engine engine;
+    private Wheels wheels;
 
     @Inject
-    public Car() {
+    public Car(Engine engine, Wheels wheels) {
+        this.engine=engine;
+        this.wheels=wheels;
         Log.d(TAG, "Car Ready");
     }
 
